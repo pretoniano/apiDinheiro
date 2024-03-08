@@ -3,6 +3,7 @@ import cors from "cors";
 import logger from "morgan";
 import bodyParser from "body-parser";
 import userRouter from "./routes/user.routes";
+import connectDB from "./config/database";
 
 export const app = express();
 
@@ -15,3 +16,6 @@ app.use(bodyParser.json());
 
 app.use("/user", userRouter);
 //app.use("transfer", transferRouter);
+
+//mongo DB
+connectDB();
