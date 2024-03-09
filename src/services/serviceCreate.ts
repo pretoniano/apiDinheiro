@@ -10,6 +10,9 @@ interface dataUser {
 
 class serviceCreate {
   async create({ fullName, cpf, email, password, wallet }: dataUser) {
+    
+    //******cadastramento de usuario no mongo DB
+
     try{
         const user = new userModel({
             fullName,

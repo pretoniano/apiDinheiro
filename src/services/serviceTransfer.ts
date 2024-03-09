@@ -25,9 +25,12 @@ const transfer = async (req: Request, res: Response) => {
         session.startTransaction()
 
         try{
+            //atualizacao de revendedor
+            
             revender.wallet -= amount
             await revender.save()
 
+            //atualizacao de lojista
             const store = await userModel.findOneAndUpdate(
                 {cpf:cpfStore},
                 {$inc: { wallet: amount } },
